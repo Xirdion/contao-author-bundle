@@ -32,8 +32,11 @@
                     </a>
                 <?php endif;?>
             </p>
-            <p class="author-description">
-                <?= $this->user->description ?>
+            <?php if ($this->user->authorDescription): ?>
+                <p class="author-description">
+                    <?= $this->user->authorDescription ?>
+                </p>
+            <?php endif; ?>
             </p>
             <ul class="author-links">
                 <li>
@@ -43,7 +46,7 @@
                 </li>
                 <?php foreach ($this->links as $link): ?>
                     <li>
-                        <a class="author-social-link author-<?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="sameAs" title="<?= $link['name'] ?>">
+                        <a class="author-social-link author-<?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="sameAs" title="<?= $link['name'] ?> rel="me">
                             <?= $link['name'] ?>
                         </a>
                     </li>
