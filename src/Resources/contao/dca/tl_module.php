@@ -10,9 +10,9 @@ declare(strict_types=1);
 $table = 'tl_module';
 
 $GLOBALS['TL_DCA'][$table]['palettes']['__selector__'][] = 'authorArchiveType';
-$GLOBALS['TL_DCA'][$table]['palettes']['author'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType;{source_legend},imgSize,fullsize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA'][$table]['palettes']['author_news'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType,authorArchive;{source_legend},imgSize,fullsize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
-$GLOBALS['TL_DCA'][$table]['palettes']['author_calendar'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType,authorCalendar;{source_legend},imgSize,fullsize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA'][$table]['palettes']['author'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType;{source_legend},imgSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA'][$table]['palettes']['author_news'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType,authorArchive;{source_legend},imgSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA'][$table]['palettes']['author_calendar'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType,authorCalendar;{source_legend},imgSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorArchiveType'] = [
     'label' => &$GLOBALS['TL_LANG'][$table]['authorArchiveType'],

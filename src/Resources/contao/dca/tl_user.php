@@ -59,9 +59,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
     'eval' => [
         'fieldType' => 'radio',
         'tl_class' => 'w50',
-        'dcaPicker' => [
-            'pagePicker' => [],
-        ],
+        'dcaPicker' => [['providers' => ['pagePicker']]],
     ],
     'sql' => 'blob NULL',
 ];
