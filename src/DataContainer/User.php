@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the Contao Author Bundle.
+ * (c) Werbeagentur Dreibein GmbH
+ */
+
 namespace Dreibein\ContaoAuthorBundle\DataContainer;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
@@ -10,7 +17,7 @@ class User
     /**
      * @param DataContainer $dc
      */
-    public function modifyPalette($dc)
+    public function modifyPalette($dc): void
     {
         PaletteManipulator::create()
             ->addLegend('author_legend', 'backend_legend', PaletteManipulator::POSITION_BEFORE)
@@ -19,7 +26,7 @@ class User
                     'authorPicture',
                     'authorDescription',
                     'authorLinks',
-                    'authorPage'
+                    'authorPage',
                 ],
                 'author_legend',
                 PaletteManipulator::POSITION_APPEND

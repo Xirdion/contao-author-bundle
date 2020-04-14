@@ -1,8 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the Contao Author Bundle.
+ * (c) Werbeagentur Dreibein GmbH
+ */
+
 namespace Dreibein\ContaoAuthorBundle\Controller\FrontendModule;
 
-use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FilesModel;
@@ -24,6 +30,7 @@ class AuthorController extends AbstractFrontendModuleController
 
     /**
      * AuthorController constructor.
+     *
      * @param ContaoFramework $framework
      */
     public function __construct(ContaoFramework $framework)
@@ -39,13 +46,13 @@ class AuthorController extends AbstractFrontendModuleController
         $news = $this->framework->getAdapter(NewsModel::class);
         $row = $news->findOneBy('alias', $alias);
 
-        if (null === $alias || !$row->author) {
+        if ($alias === null || !$row->author) {
             return new Response();
         }
 
         $user = $this->framework->getAdapter(UserModel::class)->findByPk($row->author);
         $userImage = $this->framework->getAdapter(FilesModel::class)->findByUuid($user->authorPicture);
-        [$size, $width, $height] = \Contao\StringUtil::deserialize($model->imgSize);
+        [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
 
         $template->size = [$size, $width, $height];
         $template->singleSRC = $userImage->path;
@@ -68,7 +75,7 @@ class AuthorController extends AbstractFrontendModuleController
             $links[] = [
                 'name' => $authorLink['name'],
                 'link' => $authorLink['link'],
-                'class' => StringUtil::generateAlias($authorLink['name'])
+                'class' => StringUtil::generateAlias($authorLink['name']),
             ];
         }
 

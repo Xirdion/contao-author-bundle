@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the Contao Author Bundle.
+ * (c) Werbeagentur Dreibein GmbH
+ */
+
 $table = 'tl_user';
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorPicture'] = [
@@ -31,18 +38,18 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorLinks'] = [
         'columnFields' => [
             'name' => [
                 'label' => &$GLOBALS['TL_LANG'][$table]['authorLinkName'],
-                'inputType' => 'text'
+                'inputType' => 'text',
             ],
             'link' => [
                 'label' => &$GLOBALS['TL_LANG'][$table]['authorLink'],
                 'inputType' => 'text',
                 'eval' => [
-                    'rgxp' => 'url'
+                    'rgxp' => 'url',
                 ],
             ],
         ],
     ],
-    'sql' => "blob NULL",
+    'sql' => 'blob NULL',
 ];
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
@@ -53,7 +60,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
         'fieldType' => 'radio',
         'tl_class' => 'w50',
         'dcaPicker' => [
-            'pagePicker' => []
+            'pagePicker' => [],
         ],
     ],
     'sql' => 'blob NULL',
