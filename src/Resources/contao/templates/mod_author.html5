@@ -20,9 +20,11 @@
             <p class="author-name">
                 <span itemprop="name"><?= $this->user->name ?></span>
             </p>
-            <p class="author-description">
-                <?= $this->user->description ?>
-            </p>
+            <?php if ($this->user->authorDescription): ?>
+                <p class="author-description">
+                    <?= $this->user->authorDescription ?>
+                </p>
+            <?php endif; ?>
             <p class="author-more">
                 <a href="<?= $this->user->page ?>" title="{{trans::MSC.more::contao_default}}">{{trans::MSC.more::contao_default}}</a>
             </p>
