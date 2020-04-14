@@ -44,27 +44,22 @@ class AuthorController extends AbstractFrontendModuleController
         $input = $this->framework->getAdapter(Input::class);
         $alias = $input->get('auto_item');
 
-        // search for news
-        $news = $this->framework->getAdapter(NewsModel::class);
-        $row = $news->findOneBy('alias', $alias);
+        $content = $this->getContent($alias, $model);
 
-        // search for event
-        if ($row === null) {
-            $events = $this->framework->getAdapter(CalendarEventsModel::class);
-            $row = $events->findOneBy('alias', $alias);
-        }
-
-        if ($alias === null || !$row->author) {
+        if ($alias === null || $content === null || !$content->author) {
             return new Response('', Response::HTTP_NO_CONTENT);
         }
 
-        $user = $this->framework->getAdapter(UserModel::class)->findByPk($row->author);
-        $userImage = $this->framework->getAdapter(FilesModel::class)->findByUuid($user->authorPicture);
-        [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
-
-        $template->size = [$size, $width, $height];
-        $template->singleSRC = $userImage->path;
+        $user = $this->framework->getAdapter(UserModel::class)->findByPk($content->author);
         $template->user = $user;
+
+        if ($user) {
+            $userImage = $this->framework->getAdapter(FilesModel::class)->findByUuid($user->authorPicture);
+            [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
+            $template->size = [$size, $width, $height];
+            $template->singleSRC = $userImage->path;
+        }
+
         $template->links = $this->getLinks($user);
 
         return $template->getResponse();
@@ -88,5 +83,25 @@ class AuthorController extends AbstractFrontendModuleController
         }
 
         return $links;
+    }
+
+    private function getContent(?string $alias, ModuleModel $model)
+    {
+        if ($alias === null) {
+            return null;
+        }
+
+        switch ($model->authorArchiveType) {
+            case 'author_news':
+                $adapter = $this->framework->getAdapter(NewsModel::class);
+
+                return $adapter->findPublishedByParentAndIdOrAlias($alias, (array) $model->authorArchive);
+            case 'author_calendar':
+                $adapter = $this->framework->getAdapter(CalendarEventsModel::class);
+
+                return $adapter->findPublishedByParentAndIdOrAlias($alias, (array) $model->authorCalendar);
+        }
+
+        return null;
     }
 }
