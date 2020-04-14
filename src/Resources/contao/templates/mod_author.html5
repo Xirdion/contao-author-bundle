@@ -24,7 +24,7 @@
                 <?= $this->user->description ?>
             </p>
             <p class="author-more">
-                <a href="<?= $this->user->page ?>" title="{{trans::MSC.more::contao_default}}">{{trans::MSC.more::contao_default}}</a>
+                <a href="<?= $this->user->page ?>" title="{{trans::MSC.more::contao_default}}" rel="author">{{trans::MSC.more::contao_default}}</a>
             </p>
             <ul class="author-links">
                 <li>
