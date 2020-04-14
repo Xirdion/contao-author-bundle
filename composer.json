@@ -1,0 +1,39 @@
+{
+    "name": "dreibein/contao-author-bundle",
+    "description": "Show additional author information on a reader page",
+    "type": "contao-bundle",
+    "authors": [
+        {
+            "name": "Simon Reitinger",
+            "email": "s.reitinger@agentur-dreibein.de"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "contao/calendar-bundle": "^4.8",
+        "contao/core-bundle": "^4.8",
+        "contao/news-bundle": "^4.8"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "phpunit/phpunit": "^8.5"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "extra": {
+        "contao-manager-plugin": "Dreibein\\ContaoAuthorBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dreibein\\ContaoAuthorBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dreibein\\ContaoAuthorBundle\\Tests\\": "tests"
+        }
+    }
+}

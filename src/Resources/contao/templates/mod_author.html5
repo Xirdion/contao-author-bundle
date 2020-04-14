@@ -1,0 +1,46 @@
+<div class="<?= $this->class ?>">
+    <div class="inside">
+        <?php if ($this->headline): ?>
+            <div class="ce_headline">
+                <div class="inside">
+                    <<?= $this->hl ?> class="headline">
+                        <?= $this->headline ?>
+                    </<?= $this->hl ?>>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->user->authorPicture): ?>
+            <div class="author-image">
+                <figure class="image_container">
+                    {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>}}
+                </figure>
+            </div>
+        <?php endif; ?>
+        <div class="author-container <?= ($this->user->authorPicture) ? 'has-image' : 'no-image' ?>" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            <p class="author-name">
+                <span itemprop="name"><?= $this->user->name ?></span>
+            </p>
+            <p class="author-description">
+                <?= $this->user->description ?>
+            </p>
+            <p class="author-more">
+                <a href="<?= $this->user->page ?>" title="{{trans::MSC.more::contao_default}}">{{trans::MSC.more::contao_default}}</a>
+            </p>
+            <ul class="author-links">
+                <li>
+                    <a class="author-social-link author-email" href="mailto:<?= $this->user->email ?>" target="_blank" itemprop="email">
+                        <?= $this->user->email ?>
+                    </a>
+                </li>
+                <?php foreach ($this->links as $link): ?>
+                    <li>
+                        <a class="author-social-link <?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="email">
+                            <?= $link['name'] ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+    </div>
+</div>
