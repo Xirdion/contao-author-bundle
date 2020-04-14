@@ -12,7 +12,7 @@
         <?php if ($this->user->authorPicture): ?>
             <div class="author-image">
                 <figure class="image_container">
-                    {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>}}
+                    {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>&alt=<?= $this->user->name ?>}}
                 </figure>
             </div>
         <?php endif; ?>
@@ -34,7 +34,7 @@
                 </li>
                 <?php foreach ($this->links as $link): ?>
                     <li>
-                        <a class="author-social-link <?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="email">
+                        <a class="author-social-link author-<?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="sameAs">
                             <?= $link['name'] ?>
                         </a>
                     </li>
