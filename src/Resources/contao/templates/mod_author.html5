@@ -12,31 +12,41 @@
         <?php if ($this->user->authorPicture): ?>
             <div class="author-image">
                 <figure class="image_container">
-                    {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>}}
+                    <?php if($this->user->page):?>
+                        <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
+                    <?php endif;?>
+                        {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>&alt=<?= $this->user->name ?>}}
+                    <?php if($this->user->page):?>
+                        </a>
+                    <?php endif;?>
                 </figure>
             </div>
         <?php endif; ?>
         <div class="author-container <?= ($this->user->authorPicture) ? 'has-image' : 'no-image' ?>" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             <p class="author-name">
-                <span itemprop="name"><?= $this->user->name ?></span>
+                <?php if($this->user->page):?>
+                    <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="author">
+                <?php endif;?>
+                    <span itemprop="name"><?= $this->user->name ?></span>
+                <?php if($this->user->page):?>
+                    </a>
+                <?php endif;?>
             </p>
             <?php if ($this->user->authorDescription): ?>
                 <p class="author-description">
                     <?= $this->user->authorDescription ?>
                 </p>
             <?php endif; ?>
-            <p class="author-more">
-                <a href="<?= $this->user->page ?>" title="{{trans::MSC.more::contao_default}}">{{trans::MSC.more::contao_default}}</a>
             </p>
             <ul class="author-links">
                 <li>
-                    <a class="author-social-link author-email" href="mailto:<?= $this->user->email ?>" target="_blank" itemprop="email">
-                        <?= $this->user->email ?>
+                    <a class="author-social-link author-email" href="mailto:{{email_url::<?= $this->user->email ?>}}" target="_blank" itemprop="email" title="{{email_url::<?= $this->user->email ?>}}">
+                        {{email_url::<?= $this->user->email ?>}}
                     </a>
                 </li>
                 <?php foreach ($this->links as $link): ?>
                     <li>
-                        <a class="author-social-link author-<?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="sameAs" rel="me">
+                        <a class="author-social-link author-<?= $link['class'] ?>" href="<?= $link['link'] ?>" target="_blank" itemprop="sameAs" title="<?= $link['name'] ?> rel="me">
                             <?= $link['name'] ?>
                         </a>
                     </li>
