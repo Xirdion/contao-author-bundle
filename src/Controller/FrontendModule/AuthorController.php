@@ -38,7 +38,7 @@ class AuthorController extends AbstractFrontendModuleController
         $this->framework = $framework;
     }
 
-    protected function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    public function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
     {
         $input = $this->framework->getAdapter(Input::class);
         $alias = $input->get('auto_item');
@@ -47,7 +47,7 @@ class AuthorController extends AbstractFrontendModuleController
         $row = $news->findOneBy('alias', $alias);
 
         if ($alias === null || !$row->author) {
-            return new Response();
+            return new Response('', Response::HTTP_NO_CONTENT);
         }
 
         $user = $this->framework->getAdapter(UserModel::class)->findByPk($row->author);
