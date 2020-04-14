@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dreibein\ContaoAuthorBundle\Controller\FrontendModule;
 
+use Contao\CalendarEventsModel;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FilesModel;
@@ -43,8 +44,15 @@ class AuthorController extends AbstractFrontendModuleController
         $input = $this->framework->getAdapter(Input::class);
         $alias = $input->get('auto_item');
 
+        // search for news
         $news = $this->framework->getAdapter(NewsModel::class);
         $row = $news->findOneBy('alias', $alias);
+
+        // search for event
+        if ($row === null) {
+            $events = $this->framework->getAdapter(CalendarEventsModel::class);
+            $row = $events->findOneBy('alias', $alias);
+        }
 
         if ($alias === null || !$row->author) {
             return new Response('', Response::HTTP_NO_CONTENT);
