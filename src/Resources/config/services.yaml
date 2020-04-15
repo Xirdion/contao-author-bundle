@@ -4,7 +4,7 @@ services:
         arguments:
             - '@contao.framework'
         tags:
-            - { name: contao.frontend_module, category: news }
+            - { name: contao.frontend_module, category: user }
 
     contao_author.data_container.user:
         class: Dreibein\ContaoAuthorBundle\DataContainer\User
