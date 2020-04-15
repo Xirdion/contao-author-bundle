@@ -16,7 +16,7 @@ class UserTest extends TestCase
 {
     public function testModifyPalette(): void
     {
-        $palettes = ['admin', 'default', 'group', 'extend', 'custom'];
+        $palettes = ['login', 'admin', 'default', 'group', 'extend', 'custom'];
         $dc = new \stdClass();
         $dc->table = 'tl_user';
 

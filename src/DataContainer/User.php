@@ -31,6 +31,7 @@ class User
                 'author_legend',
                 PaletteManipulator::POSITION_APPEND
             )
+            ->applyToPalette('login', $dc->table)
             ->applyToPalette('admin', $dc->table)
             ->applyToPalette('default', $dc->table)
             ->applyToPalette('group', $dc->table)
