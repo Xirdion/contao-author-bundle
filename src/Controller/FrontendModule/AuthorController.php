@@ -12,6 +12,7 @@ namespace Dreibein\ContaoAuthorBundle\Controller\FrontendModule;
 use Contao\CalendarEventsModel;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Framework\ContaoFramework;
+use Contao\FaqModel;
 use Contao\FilesModel;
 use Contao\Input;
 use Contao\ModuleModel;
@@ -95,11 +96,16 @@ class AuthorController extends AbstractFrontendModuleController
             case 'author_news':
                 $adapter = $this->framework->getAdapter(NewsModel::class);
 
-                return $adapter->findPublishedByParentAndIdOrAlias($alias, (array) $model->authorArchive);
+                return $adapter->findOneByAlias($alias);
             case 'author_calendar':
                 $adapter = $this->framework->getAdapter(CalendarEventsModel::class);
+            
+                return $adapter->findOneByAlias($alias);
+            case 'author_faq':
+                $adapter = $this->framework->getAdapter(FaqModel::class);
 
-                return $adapter->findPublishedByParentAndIdOrAlias($alias, (array) $model->authorCalendar);
+                return $adapter->findOneByAlias($alias);
+
         }
 
         return null;

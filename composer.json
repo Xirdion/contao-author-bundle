@@ -13,6 +13,7 @@
         "ext-json": "*",
         "contao/calendar-bundle": "^4.8",
         "contao/core-bundle": "^4.8",
+        "contao/faq-bundle": "^4.8",
         "contao/news-bundle": "^4.8"
     },
     "require-dev": {
