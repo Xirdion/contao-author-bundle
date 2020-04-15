@@ -5,25 +5,25 @@
     <?php if ($this->user->authorPicture): ?>
         <div class="author-image">
             <figure class="image_container">
-                <?php if($this->user->page):?>
-                    <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
-                <?php endif;?>
+                <?php if ($this->user->authorPage): ?>
+                    <a href="<?= $this->user->authorPage ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
+                <?php endif; ?>
                     <?php $this->insert('picture_default', $this->picture); ?>
-                <?php if($this->user->page):?>
+                <?php if ($this->user->authorPage): ?>
                     </a>
-                <?php endif;?>
+                <?php endif; ?>
             </figure>
         </div>
     <?php endif; ?>
     <div class="author-container <?= ($this->user->authorPicture) ? 'has-image' : 'no-image' ?>" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
         <p class="author-name">
-            <?php if($this->user->page):?>
-                <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="author">
-            <?php endif;?>
+            <?php if ($this->user->authorPage): ?>
+                <a href="<?= $this->user->authorPage ?>" title="<?= $this->user->name ?>" class="author-more" rel="author">
+            <?php endif; ?>
                 <span itemprop="name"><?= $this->user->name ?></span>
-            <?php if($this->user->page):?>
+            <?php if ($this->user->authorPage): ?>
                 </a>
-            <?php endif;?>
+            <?php endif; ?>
         </p>
         <?php if ($this->user->authorDescription): ?>
             <p class="author-description">
