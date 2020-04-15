@@ -86,6 +86,10 @@ class AuthorController extends AbstractFrontendModuleController
         $authorLinks = StringUtil::deserialize($user->authorLinks);
 
         foreach ($authorLinks as $authorLink) {
+            if (!$authorLink['link']) {
+                continue;
+            }
+
             $links[] = [
                 'name' => $authorLink['name'],
                 'link' => $authorLink['link'],

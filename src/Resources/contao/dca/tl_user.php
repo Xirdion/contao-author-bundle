@@ -25,9 +25,9 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPicture'] = [
 $GLOBALS['TL_DCA'][$table]['fields']['authorDescription'] = [
     'label' => &$GLOBALS['TL_LANG'][$table]['authorDescription'],
     'exclude' => true,
-    'inputType' => 'text',
+    'inputType' => 'textarea',
     'eval' => ['tl_class' => 'long clr'],
-    'sql' => "varchar(255) NOT NULL default ''",
+    'sql' => "text NULL",
 ];
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorLinks'] = [
