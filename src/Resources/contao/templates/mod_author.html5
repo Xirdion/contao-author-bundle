@@ -8,7 +8,7 @@
                 <?php if($this->user->page):?>
                     <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
                 <?php endif;?>
-                    {{picture::<?= $this->singleSRC ?>?size=<?= $this-size[0] ?>&width=<?= $this->size[1] ?>&height=<?= $this->size[2] ?>&alt=<?= $this->user->name ?>}}
+                    <?php $this->insert('picture_default', $this->picture); ?>
                 <?php if($this->user->page):?>
                     </a>
                 <?php endif;?>
