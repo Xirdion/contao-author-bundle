@@ -2,6 +2,7 @@
     "name": "dreibein/contao-author-bundle",
     "description": "Show additional author information on a reader page",
     "type": "contao-bundle",
+    "license": "MIT",
     "authors": [
         {
             "name": "Simon Reitinger",
