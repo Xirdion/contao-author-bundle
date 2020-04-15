@@ -59,7 +59,13 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
     'eval' => [
         'fieldType' => 'radio',
         'tl_class' => 'w50',
-        'dcaPicker' => [['providers' => ['pagePicker']]],
+        'dcaPicker' => [
+            'do' => 'page',
+            'providers' => [
+                'pagePicker',
+                'newsPicker',
+            ],
+        ],
     ],
-    'sql' => 'blob NULL',
+    'sql' => "varchar(255) NOT NULL default ''",
 ];
