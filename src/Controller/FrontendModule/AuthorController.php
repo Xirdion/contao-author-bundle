@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dreibein\ContaoAuthorBundle\Controller\FrontendModule;
 
 use Contao\CalendarEventsModel;
+use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FaqModel;
@@ -59,6 +60,15 @@ class AuthorController extends AbstractFrontendModuleController
             [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
             $template->size = [$size, $width, $height];
             $template->singleSRC = $userImage->path;
+
+            $this->framework->getAdapter(Controller::class)->addImageToTemplate($template, $template->getData(), null, null, $userImage);
+
+            // overwrite alt text if it does not exist
+            if (!$template->picture['alt']) {
+                $picture = $template->picture;
+                $picture['alt'] = $user->name;
+                $template->picture = $picture;
+            }
         }
 
         $template->links = $this->getLinks($user);
@@ -99,13 +109,12 @@ class AuthorController extends AbstractFrontendModuleController
                 return $adapter->findOneByAlias($alias);
             case 'author_calendar':
                 $adapter = $this->framework->getAdapter(CalendarEventsModel::class);
-            
+
                 return $adapter->findOneByAlias($alias);
             case 'author_faq':
                 $adapter = $this->framework->getAdapter(FaqModel::class);
 
                 return $adapter->findOneByAlias($alias);
-
         }
 
         return null;
