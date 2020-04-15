@@ -4,7 +4,7 @@
 
     <?php if ($this->user->authorPicture): ?>
         <div class="author-image">
-            <figure class="image_container">
+            <figure class="image_container" itemscope itemtype="http://schema.org/ImageObject">
                 <?php if($this->user->page):?>
                     <a href="<?= $this->user->page ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
                 <?php endif;?>
