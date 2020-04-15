@@ -4,10 +4,10 @@
 
     <?php if ($this->user->authorPicture): ?>
         <div class="author-image">
-            <figure class="image_container">
-                <?php if ($this->user->authorPage): ?>
+            <figure class="image_container" itemscope itemtype="http://schema.org/ImageObject">
+                <?php if($this->user->authorPage): ?>
                     <a href="<?= $this->user->authorPage ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
-                <?php endif; ?>
+                <?php endif;?>
                     <?php $this->insert('picture_default', $this->picture); ?>
                 <?php if ($this->user->authorPage): ?>
                     </a>
@@ -30,7 +30,6 @@
                 <?= $this->user->authorDescription ?>
             </p>
         <?php endif; ?>
-        </p>
         <ul class="author-links">
             <li>
                 <a class="author-social-link author-email" href="mailto:{{email_url::<?= $this->user->email ?>}}" target="_blank" itemprop="email" title="{{email_url::<?= $this->user->email ?>}}">
