@@ -5,10 +5,16 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Simon Reitinger",
-            "email": "s.reitinger@agentur-dreibein.de"
+            "name": "Agentur Dreibein",
+            "homepage": "https://www.agentur-dreibein.de",
+            "email": "info@agentur-dreibein.de",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/dreibein/contao-author-bundle/issues",
+        "source": "https://github.com/dreibein/contao-author-bundle"
+    },
     "require": {
         "php": "^7.2",
         "ext-json": "*",
