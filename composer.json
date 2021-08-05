@@ -24,9 +24,10 @@
         "contao/news-bundle": "^4.9"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "contao/manager-plugin": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.14",
-        "phpunit/phpunit": "^8.5"
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^9.5"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"

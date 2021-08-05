@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Contao Author Bundle.
- * (c) Werbeagentur Dreibein GmbH
+ * This file is part of the Contao Author Bundle
+ *
+ * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+ * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+ * @link       https://github.com/dreibein/project-interliving
  */
 
 $table = 'tl_module';
@@ -26,5 +29,5 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorArchiveType'] = [
         'tl_class' => 'w50',
         'submitOnChange' => true,
     ],
-    'sql' => "varchar(255) NOT NULL default ''",
+    'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => ''],
 ];

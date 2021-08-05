@@ -1,8 +1,11 @@
 <?php
 
 $header = <<<'EOF'
-This file is part of the Contao Author Bundle.
-(c) Werbeagentur Dreibein GmbH
+This file is part of the Contao Author Bundle
+
+@copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+@author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+@link       https://github.com/dreibein/project-interliving
 EOF;
 $finder = PhpCsFixer\Finder::create()
     ->in([
@@ -10,13 +13,17 @@ $finder = PhpCsFixer\Finder::create()
         __DIR__.'/tests',
     ])
 ;
-return PhpCsFixer\Config::create()
+
+$config = new PhpCsFixer\Config();
+
+$config
+    ->setRiskyAllowed(true)
     ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
         '@PHP71Migration' => true,
         '@PHP71Migration:risky' => true,
-        '@PHPUnit60Migration:risky' => true,
+        '@PHPUnit75Migration:risky' => true,
         'align_multiline_comment' => true,
         'array_indentation' => true,
         'array_syntax' => ['syntax' => 'short'],
@@ -31,9 +38,11 @@ return PhpCsFixer\Config::create()
         'fopen_flags' => false,
         'fully_qualified_strict_types' => true,
         'general_phpdoc_annotation_remove' => [
-            'author',
-            'expectedException',
-            'expectedExceptionMessage',
+            'annotations' => [
+                'author',
+                'expectedException',
+                'expectedExceptionMessage',
+            ]
         ],
         'header_comment' => ['header' => $header],
         'heredoc_to_nowdoc' => true,
@@ -64,24 +73,14 @@ return PhpCsFixer\Config::create()
             'null_adjustment' => 'always_last',
             'sort_algorithm' => 'none',
         ],
-        'php_unit_strict' => [
-            'assertAttributeEquals',
-            'assertAttributeNotEquals',
-            'assertNotEquals',
-        ],
         'return_assignment' => true,
         'strict_comparison' => true,
         'strict_param' => true,
         'string_line_ending' => true,
         'void_return' => true,
-        'yoda_style' => [
-            'always_move_variable' => false,
-            'equal' => false,
-            'identical' => false,
-            'less_and_greater' => false
-        ],
+        'yoda_style' => true,
     ])
     ->setFinder($finder)
-    ->setRiskyAllowed(true)
-    ->setUsingCache(false)
 ;
+
+return $config;

@@ -3,14 +3,18 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Contao Author Bundle.
- * (c) Werbeagentur Dreibein GmbH
+ * This file is part of the Contao Author Bundle
+ *
+ * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+ * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+ * @link       https://github.com/dreibein/project-interliving
  */
 
 namespace Dreibein\ContaoAuthorBundle\Tests\ContaoManager;
 
 use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
+use Contao\FaqBundle\ContaoFaqBundle;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
@@ -46,9 +50,10 @@ class PluginTest extends TestCase
         $this->assertInstanceOf(ConfigPluginInterface::class, $plugin);
         $this->assertCount(1, $bundles);
         $this->assertSame([
-            ContaoCoreBundle::class,
-            ContaoNewsBundle::class,
             ContaoCalendarBundle::class,
+            ContaoCoreBundle::class,
+            ContaoFaqBundle::class,
+            ContaoNewsBundle::class,
         ], $bundles[0]->getLoadAfter());
     }
 }
