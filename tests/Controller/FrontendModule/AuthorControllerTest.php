@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Contao Author Bundle.
- * (c) Werbeagentur Dreibein GmbH
+ * This file is part of the Contao Author Bundle
+ *
+ * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+ * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+ * @link       https://github.com/dreibein/project-interliving
  */
 
 namespace Dreibein\ContaoAuthorBundle\Tests\Controller\FrontendModule;
@@ -42,6 +45,6 @@ class AuthorControllerTest extends TestCase
 
         $response = $controller->getResponse($template, $model, $request);
 
-        $this->assertEquals(204, $response->getStatusCode());
+        $this->assertSame(204, $response->getStatusCode());
     }
 }

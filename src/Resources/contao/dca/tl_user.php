@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Contao Author Bundle.
- * (c) Werbeagentur Dreibein GmbH
+ * This file is part of the Contao Author Bundle
+ *
+ * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+ * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+ * @link       https://github.com/dreibein/project-interliving
  */
 
 $table = 'tl_user';
@@ -19,7 +22,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPicture'] = [
         'tl_class' => 'w50',
         'extensions' => 'jpg,jpeg,png,gif',
     ],
-    'sql' => 'binary(16) NULL',
+    'sql' => ['type' => 'binary', 'notnull' => false],
 ];
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorDescription'] = [
@@ -27,7 +30,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorDescription'] = [
     'exclude' => true,
     'inputType' => 'textarea',
     'eval' => ['tl_class' => 'long clr'],
-    'sql' => "text NULL",
+    'sql' => ['type' => 'text', 'notnull' => false],
 ];
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorLinks'] = [
@@ -49,7 +52,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorLinks'] = [
             ],
         ],
     ],
-    'sql' => 'blob NULL',
+    'sql' => ['type' => 'blob', 'notnull' => false],
 ];
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
@@ -67,5 +70,6 @@ $GLOBALS['TL_DCA'][$table]['fields']['authorPage'] = [
             ],
         ],
     ],
-    'sql' => "varchar(255) NOT NULL default ''",
+
+    'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => ''],
 ];

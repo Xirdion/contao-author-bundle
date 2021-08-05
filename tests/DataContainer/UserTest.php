@@ -3,12 +3,16 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the Contao Author Bundle.
- * (c) Werbeagentur Dreibein GmbH
+ * This file is part of the Contao Author Bundle
+ *
+ * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
+ * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
+ * @link       https://github.com/dreibein/project-interliving
  */
 
 namespace Dreibein\ContaoAuthorBundle\Tests\DataContainer;
 
+use Contao\DataContainer;
 use Dreibein\ContaoAuthorBundle\DataContainer\User;
 use PHPUnit\Framework\TestCase;
 
@@ -17,8 +21,12 @@ class UserTest extends TestCase
     public function testModifyPalette(): void
     {
         $palettes = ['login', 'admin', 'default', 'group', 'extend', 'custom'];
-        $dc = new \stdClass();
-        $dc->table = 'tl_user';
+        $dc = $this->createMock(DataContainer::class);
+        $dc
+            ->method('__get')
+            ->with('table')
+            ->willReturn('tl_user')
+        ;
 
         include_once __DIR__ . '/../../src/Resources/contao/dca/tl_user.php';
 
