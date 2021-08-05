@@ -5,7 +5,7 @@ This file is part of the Contao Author Bundle
 
 @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
 @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
-@link       https://github.com/dreibein/project-interliving
+@link       https://github.com/dreibein/contao-author-bundle
 EOF;
 $finder = PhpCsFixer\Finder::create()
     ->in([

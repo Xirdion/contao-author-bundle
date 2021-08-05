@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
  * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
- * @link       https://github.com/dreibein/project-interliving
+ * @link       https://github.com/dreibein/contao-author-bundle
  */
 
 $GLOBALS['TL_LANG']['FMD']['author'] = ['Autor', 'Autor in einem Leser anzeigen'];
