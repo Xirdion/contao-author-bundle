@@ -24,6 +24,9 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class PluginTest extends TestCase
 {
+    /**
+     * @throws \Exception
+     */
     public function testRegisterContainerConfiguration(): void
     {
         $loader = $this->createMock(LoaderInterface::class);
@@ -31,9 +34,9 @@ class PluginTest extends TestCase
         $plugin = new Plugin();
 
         $loader
-            ->expects($this->once())
+            ->expects($this->exactly(2))
             ->method('load')
-            ->with($this->stringContains('Resources/config/services.yaml'))
+            ->with($this->stringContains('Resources/config/'))
         ;
 
         $plugin->registerContainerConfiguration($loader, []);

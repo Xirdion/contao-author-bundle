@@ -5,10 +5,3 @@ services:
             - '@contao.framework'
         tags:
             - { name: contao.frontend_module, category: user }
-
-    contao_author.data_container.user:
-        class: Dreibein\ContaoAuthorBundle\DataContainer\User
-        arguments:
-            - '@contao.framework'
-        tags:
-            - { name: contao.callback, target: config.onload, table: tl_user, method: modifyPalette }

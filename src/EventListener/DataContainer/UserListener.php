@@ -10,12 +10,12 @@ declare(strict_types=1);
  * @link       https://github.com/dreibein/contao-author-bundle
  */
 
-namespace Dreibein\ContaoAuthorBundle\DataContainer;
+namespace Dreibein\ContaoAuthorBundle\EventListener\DataContainer;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 use Contao\DataContainer;
 
-class User
+class UserListener
 {
     /**
      * @param DataContainer $dc

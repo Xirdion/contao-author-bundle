@@ -16,7 +16,6 @@ $GLOBALS['TL_DCA'][$table]['palettes']['__selector__'][] = 'authorArchiveType';
 $GLOBALS['TL_DCA'][$table]['palettes']['author'] = '{title_legend},name,type,headline;{config_legend},authorArchiveType;{source_legend},imgSize;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
 
 $GLOBALS['TL_DCA'][$table]['fields']['authorArchiveType'] = [
-    'label' => &$GLOBALS['TL_LANG'][$table]['authorArchiveType'],
     'exclude' => true,
     'inputType' => 'select',
     'options' => [

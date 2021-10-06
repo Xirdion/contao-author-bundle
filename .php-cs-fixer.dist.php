@@ -9,8 +9,8 @@ This file is part of the Contao Author Bundle
 EOF;
 $finder = PhpCsFixer\Finder::create()
     ->in([
-        __DIR__.'/src',
-        __DIR__.'/tests',
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
     ])
 ;
 
@@ -32,7 +32,7 @@ $config
         'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => true,
         'concat_space' => [
-            'spacing' => 'one'
+            'spacing' => 'one',
         ],
         'escape_implicit_backslashes' => true,
         'fopen_flags' => false,
@@ -42,7 +42,7 @@ $config
                 'author',
                 'expectedException',
                 'expectedExceptionMessage',
-            ]
+            ],
         ],
         'header_comment' => ['header' => $header],
         'heredoc_to_nowdoc' => true,

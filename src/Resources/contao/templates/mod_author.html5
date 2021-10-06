@@ -4,7 +4,7 @@
 
     <?php if ($this->user->authorPicture): ?>
         <div class="author-image">
-            <figure class="image_container" itemscope itemtype="http://schema.org/ImageObject">
+            <figure class="image_container" itemscope itemtype="https://schema.org/ImageObject">
                 <?php if($this->user->authorPage): ?>
                     <a href="<?= $this->user->authorPage ?>" title="<?= $this->user->name ?>" class="author-more" rel="nofollow">
                 <?php endif;?>
@@ -15,7 +15,7 @@
             </figure>
         </div>
     <?php endif; ?>
-    <div class="author-container <?= ($this->user->authorPicture) ? 'has-image' : 'no-image' ?>" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <div class="author-container <?= ($this->user->authorPicture) ? 'has-image' : 'no-image' ?>" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
         <p class="author-name">
             <?php if ($this->user->authorPage): ?>
                 <a href="<?= $this->user->authorPage ?>" title="<?= $this->user->name ?>" class="author-more" rel="author">

@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @link       https://github.com/dreibein/contao-author-bundle
  */
 
-namespace Dreibein\ContaoAuthorBundle\Tests\DataContainer;
+namespace Dreibein\ContaoAuthorBundle\Tests\EventListener\DataContainer;
 
 use Contao\DataContainer;
-use Dreibein\ContaoAuthorBundle\DataContainer\User;
+use Dreibein\ContaoAuthorBundle\EventListener\DataContainer\UserListener;
 use PHPUnit\Framework\TestCase;
 
-class UserTest extends TestCase
+class UserListenerTest extends TestCase
 {
     public function testModifyPalette(): void
     {
@@ -28,14 +28,14 @@ class UserTest extends TestCase
             ->willReturn('tl_user')
         ;
 
-        include_once __DIR__ . '/../../src/Resources/contao/dca/tl_user.php';
+        include_once __DIR__ . '/../../../src/Resources/contao/dca/tl_user.php';
 
         // prepare
         foreach ($palettes as $palette) {
             $GLOBALS['TL_DCA']['tl_user']['palettes'][$palette] = '{name_legend},name;';
         }
 
-        $callback = new User();
+        $callback = new UserListener();
 
         $callback->modifyPalette($dc);
 
