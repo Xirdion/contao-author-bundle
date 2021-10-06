@@ -30,10 +30,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthorController extends AbstractFrontendModuleController
 {
-    /**
-     * @var ContaoFramework
-     */
-    private $framework;
+    private ContaoFramework $framework;
 
     /**
      * AuthorController constructor.

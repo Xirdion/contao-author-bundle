@@ -26,9 +26,11 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 class Plugin implements BundlePluginInterface, ConfigPluginInterface
 {
     /**
-     * {@inheritdoc}
+     * @param ParserInterface $parser
+     *
+     * @return array
      */
-    public function getBundles(ParserInterface $parser)
+    public function getBundles(ParserInterface $parser): array
     {
         return [
             BundleConfig::create(ContaoAuthorBundle::class)
@@ -42,10 +44,14 @@ class Plugin implements BundlePluginInterface, ConfigPluginInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param LoaderInterface $loader
+     * @param array           $managerConfig
+     *
+     * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void
     {
         $loader->load(__DIR__ . '/../Resources/config/services.yaml');
+        $loader->load(__DIR__ . '/../Resources/config/listener.yaml');
     }
 }
