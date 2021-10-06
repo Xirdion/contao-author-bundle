@@ -7,11 +7,11 @@ Show additional author information on a reader page
 `composer require dreibein/contao-author-bundle`
 
 ## Usage
- 
 - Create a user
 - Add author data to the user (description, image etc.)
 - Create a frontend module "author" and set the scope (News, Events, FAQ)
-- Insert the module on a reader page (e.g. above a news reader module)
+- Insert the module on a reader page (e.g. above a news-reader-module)
+- For news entries there is the possibility to show the author within the news-template. For this case you have to provide the image-size for the author image.
 
 ## Features
 - native Contao image support
