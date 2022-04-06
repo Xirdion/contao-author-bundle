@@ -16,7 +16,7 @@
         "source": "https://github.com/dreibein/contao-author-bundle"
     },
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
         "contao/calendar-bundle": "^4.9",
         "contao/core-bundle": "^4.9",
@@ -32,6 +32,12 @@
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true
+        }
     },
     "extra": {
         "contao-manager-plugin": "Dreibein\\ContaoAuthorBundle\\ContaoManager\\Plugin"
