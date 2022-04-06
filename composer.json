@@ -14,7 +14,6 @@
         "issues": "https://github.com/sowieso-web/contao-author-bundle/issues",
         "source": "https://github.com/sowieso-web/contao-author-bundle"
     },
-    "abandoned": "sowieso/contao-author-bundle",
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
