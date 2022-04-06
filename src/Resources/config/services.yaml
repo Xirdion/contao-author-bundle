@@ -1,6 +1,6 @@
 services:
     contao_author.controller.module_author:
-        class: Dreibein\ContaoAuthorBundle\Controller\FrontendModule\AuthorController
+        class: Sowieso\ContaoAuthorBundle\Controller\FrontendModule\AuthorController
         arguments:
             - '@contao.framework'
         tags:

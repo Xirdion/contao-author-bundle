@@ -5,18 +5,18 @@ declare(strict_types=1);
 /*
  * This file is part of the Contao Author Bundle
  *
- * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
- * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
- * @link       https://github.com/dreibein/contao-author-bundle
+ * @copyright  Copyright (c) 2022, Ideenwerkstatt Sowieso GmbH & Co. KG
+ * @author     Sowieso GmbH & Co. KG <https://sowieso.team>
+ * @link       https://github.com/sowieso-web/contao-author-bundle
  */
 
-namespace Dreibein\ContaoAuthorBundle\Tests\Controller\FrontendModule;
+namespace Sowieso\ContaoAuthorBundle\Tests\Controller\FrontendModule;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\ModuleModel;
 use Contao\Template;
-use Dreibein\ContaoAuthorBundle\Controller\FrontendModule\AuthorController;
 use PHPUnit\Framework\TestCase;
+use Sowieso\ContaoAuthorBundle\Controller\FrontendModule\AuthorController;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthorControllerTest extends TestCase

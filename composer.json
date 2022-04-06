@@ -1,19 +1,18 @@
 {
-    "name": "dreibein/contao-author-bundle",
+    "name": "sowieso/contao-author-bundle",
     "description": "Show additional author information on a reader page",
     "type": "contao-bundle",
-    "license": "MIT",
+    "license": "AGPL-3.0-or-later",
     "authors": [
         {
-            "name": "Agentur Dreibein",
-            "homepage": "https://www.agentur-dreibein.de",
-            "email": "info@agentur-dreibein.de",
-            "role": "Developer"
+            "name": "SowieSo GmbH & Co.KG",
+            "email": "development@sowieso.team",
+            "homepage": "https://sowieso.team"
         }
     ],
     "support": {
-        "issues": "https://github.com/dreibein/contao-author-bundle/issues",
-        "source": "https://github.com/dreibein/contao-author-bundle"
+        "issues": "https://github.com/sowieso-web/contao-author-bundle/issues",
+        "source": "https://github.com/sowieso-web/contao-author-bundle"
     },
     "abandoned": "sowieso/contao-author-bundle",
     "require": {
@@ -41,16 +40,16 @@
         }
     },
     "extra": {
-        "contao-manager-plugin": "Dreibein\\ContaoAuthorBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Sowieso\\ContaoAuthorBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Dreibein\\ContaoAuthorBundle\\": "src"
+            "Sowieso\\ContaoAuthorBundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dreibein\\ContaoAuthorBundle\\Tests\\": "tests"
+            "Sowieso\\ContaoAuthorBundle\\Tests\\": "tests"
         }
     }
 }

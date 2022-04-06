@@ -5,12 +5,12 @@ declare(strict_types=1);
 /*
  * This file is part of the Contao Author Bundle
  *
- * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
- * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
- * @link       https://github.com/dreibein/contao-author-bundle
+ * @copyright  Copyright (c) 2022, Ideenwerkstatt Sowieso GmbH & Co. KG
+ * @author     Sowieso GmbH & Co. KG <https://sowieso.team>
+ * @link       https://github.com/sowieso-web/contao-author-bundle
  */
 
-namespace Dreibein\ContaoAuthorBundle\EventListener\DataContainer;
+namespace Sowieso\ContaoAuthorBundle\EventListener\DataContainer;
 
 use Contao\BackendUser;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;

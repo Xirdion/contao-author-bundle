@@ -5,12 +5,12 @@ declare(strict_types=1);
 /*
  * This file is part of the Contao Author Bundle
  *
- * @copyright  Copyright (c) 2021, Digitalagentur Dreibein GmbH
- * @author     Digitalagentur Dreibein GmbH <https://www.agentur-dreibein.de>
- * @link       https://github.com/dreibein/contao-author-bundle
+ * @copyright  Copyright (c) 2022, Ideenwerkstatt Sowieso GmbH & Co. KG
+ * @author     Sowieso GmbH & Co. KG <https://sowieso.team>
+ * @link       https://github.com/sowieso-web/contao-author-bundle
  */
 
-namespace Dreibein\ContaoAuthorBundle\Tests\ContaoManager;
+namespace Sowieso\ContaoAuthorBundle\Tests\ContaoManager;
 
 use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
@@ -18,8 +18,8 @@ use Contao\FaqBundle\ContaoFaqBundle;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
-use Dreibein\ContaoAuthorBundle\ContaoManager\Plugin;
 use PHPUnit\Framework\TestCase;
+use Sowieso\ContaoAuthorBundle\ContaoManager\Plugin;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class PluginTest extends TestCase
