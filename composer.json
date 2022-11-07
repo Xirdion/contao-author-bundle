@@ -1,13 +1,12 @@
 {
-    "name": "sowieso/contao-author-bundle",
+    "name": "xirdion/contao-author-bundle",
     "description": "Show additional author information on a reader page",
     "type": "contao-bundle",
     "license": "AGPL-3.0-or-later",
     "authors": [
         {
-            "name": "SowieSo GmbH & Co.KG",
-            "email": "development@sowieso.team",
-            "homepage": "https://sowieso.team"
+            "name": "Xirdion",
+            "homepage": "https://github.com/xirdion"
         }
     ],
     "support": {
