@@ -4,7 +4,7 @@ Show additional author information on a reader page
 
 ## Installation
 
-`composer require sowieso/contao-author-bundle`
+`composer require xirdion/contao-author-bundle`
 
 ## Usage
 - Create a user

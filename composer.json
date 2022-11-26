@@ -2,7 +2,7 @@
     "name": "xirdion/contao-author-bundle",
     "description": "Show additional author information on a reader page",
     "type": "contao-bundle",
-    "license": "AGPL-3.0-or-later",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Xirdion",
@@ -10,8 +10,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/sowieso-web/contao-author-bundle/issues",
-        "source": "https://github.com/sowieso-web/contao-author-bundle"
+        "issues": "https://github.com/xirdion/contao-author-bundle/issues",
+        "source": "https://github.com/xirdion/contao-author-bundle"
     },
     "require": {
         "php": "^7.4|^8.0",
@@ -38,16 +38,16 @@
         }
     },
     "extra": {
-        "contao-manager-plugin": "Sowieso\\ContaoAuthorBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Xirdion\\ContaoAuthorBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Sowieso\\ContaoAuthorBundle\\": "src"
+            "Xirdion\\ContaoAuthorBundle\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sowieso\\ContaoAuthorBundle\\Tests\\": "tests"
+            "Xirdion\\ContaoAuthorBundle\\Tests\\": "tests"
         }
     }
 }
