@@ -6,7 +6,7 @@ This file is part of the Contao Author Bundle
 @copyright  Copyright (c), Thomas Dirscherl
 @author     Thomas Dirscherl <https://github.com/xirdion>
 @link       https://github.com/xirdion/contao-author-bundle
-@license LGPL-3.0-or-later
+@license    LGPL-3.0-or-later
 EOF;
 $finder = PhpCsFixer\Finder::create()
     ->in([

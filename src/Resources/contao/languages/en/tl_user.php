@@ -5,9 +5,10 @@ declare(strict_types=1);
 /*
  * This file is part of the Contao Author Bundle
  *
- * @copyright  Copyright (c) 2022, Ideenwerkstatt Sowieso GmbH & Co. KG
- * @author     Sowieso GmbH & Co. KG <https://sowieso.team>
- * @link       https://github.com/sowieso-web/contao-author-bundle
+ * @copyright  Copyright (c), Thomas Dirscherl
+ * @author     Thomas Dirscherl <https://github.com/xirdion>
+ * @link       https://github.com/xirdion/contao-author-bundle
+ * @license    LGPL-3.0-or-later
  */
 
 $GLOBALS['TL_LANG']['tl_user']['author_legend'] = 'Author settings';
