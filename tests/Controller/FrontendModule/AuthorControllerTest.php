@@ -11,13 +11,13 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  */
 
-namespace Sowieso\ContaoAuthorBundle\Tests\Controller\FrontendModule;
+namespace Xirdion\ContaoAuthorBundle\Tests\Controller\FrontendModule;
 
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\ModuleModel;
 use Contao\Template;
 use PHPUnit\Framework\TestCase;
-use Sowieso\ContaoAuthorBundle\Controller\FrontendModule\AuthorController;
+use Xirdion\ContaoAuthorBundle\Controller\FrontendModule\AuthorController;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthorControllerTest extends TestCase

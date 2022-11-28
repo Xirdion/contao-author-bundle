@@ -11,12 +11,12 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  */
 
-namespace Sowieso\ContaoAuthorBundle\Tests\EventListener\DataContainer;
+namespace Xirdion\ContaoAuthorBundle\Tests\EventListener\DataContainer;
 
 use Contao\CoreBundle\Image\ImageSizes;
 use Contao\DataContainer;
 use Contao\TestCase\ContaoTestCase;
-use Sowieso\ContaoAuthorBundle\EventListener\DataContainer\NewsListener;
+use Xirdion\ContaoAuthorBundle\EventListener\DataContainer\NewsListener;
 
 class NewsListenerTest extends ContaoTestCase
 {

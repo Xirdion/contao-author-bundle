@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  */
 
-namespace Sowieso\ContaoAuthorBundle\Tests\ContaoManager;
+namespace Xirdion\ContaoAuthorBundle\Tests\ContaoManager;
 
 use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
@@ -20,7 +20,7 @@ use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use PHPUnit\Framework\TestCase;
-use Sowieso\ContaoAuthorBundle\ContaoManager\Plugin;
+use Xirdion\ContaoAuthorBundle\ContaoManager\Plugin;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class PluginTest extends TestCase

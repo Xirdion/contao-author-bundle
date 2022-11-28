@@ -1,6 +1,6 @@
 services:
     contao_author.controller.module_author:
-        class: Sowieso\ContaoAuthorBundle\Controller\FrontendModule\AuthorController
+        class: Xirdion\ContaoAuthorBundle\Controller\FrontendModule\AuthorController
         arguments:
             - '@contao.framework'
         tags:

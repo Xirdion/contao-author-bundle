@@ -1,18 +1,18 @@
 services:
   contao_author.event_listener.parse_template:
-    class: Sowieso\ContaoAuthorBundle\EventListener\ParseArticlesListener
+    class: Xirdion\ContaoAuthorBundle\EventListener\ParseArticlesListener
     arguments:
       - '@contao.framework'
     tags:
       - { name: contao.hook, hook: parseArticles, method: onParseNewsArticles }
 
   contao_author.listener.data_container.user:
-    class: Sowieso\ContaoAuthorBundle\EventListener\DataContainer\UserListener
+    class: Xirdion\ContaoAuthorBundle\EventListener\DataContainer\UserListener
     tags:
       - { name: contao.callback, target: config.onload, table: tl_user, method: modifyPalette }
 
   contao_author.listener.data_container.news:
-    class: Sowieso\ContaoAuthorBundle\EventListener\DataContainer\NewsListener
+    class: Xirdion\ContaoAuthorBundle\EventListener\DataContainer\NewsListener
     arguments:
       - '@contao.framework'
       - '@contao.image.image_sizes'

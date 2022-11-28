@@ -21,7 +21,7 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
-use Sowieso\ContaoAuthorBundle\ContaoAuthorBundle;
+use Xirdion\ContaoAuthorBundle\ContaoAuthorBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class Plugin implements BundlePluginInterface, ConfigPluginInterface

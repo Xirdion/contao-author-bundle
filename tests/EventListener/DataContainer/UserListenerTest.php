@@ -11,11 +11,11 @@ declare(strict_types=1);
  * @license    LGPL-3.0-or-later
  */
 
-namespace Sowieso\ContaoAuthorBundle\Tests\EventListener\DataContainer;
+namespace Xirdion\ContaoAuthorBundle\Tests\EventListener\DataContainer;
 
 use Contao\DataContainer;
 use PHPUnit\Framework\TestCase;
-use Sowieso\ContaoAuthorBundle\EventListener\DataContainer\UserListener;
+use Xirdion\ContaoAuthorBundle\EventListener\DataContainer\UserListener;
 
 class UserListenerTest extends TestCase
 {
