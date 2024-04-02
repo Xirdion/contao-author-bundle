@@ -16,10 +16,10 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
-        "contao/calendar-bundle": "^4.9",
-        "contao/core-bundle": "^4.9",
-        "contao/faq-bundle": "^4.9",
-        "contao/news-bundle": "^4.9"
+        "contao/calendar-bundle": "^4.9 || ^5.0",
+        "contao/core-bundle": "^4.9 || ^5.0",
+        "contao/faq-bundle": "^4.9 || ^5.0",
+        "contao/news-bundle": "^4.9 || ^5.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
