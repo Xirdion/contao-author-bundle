@@ -20,6 +20,7 @@ use Contao\FilesModel;
 use Contao\FrontendTemplate;
 use Contao\Module;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\UserModel;
 
 #[AsHook('parseArticles')]
@@ -40,7 +41,7 @@ class ParseArticlesListener
      * @param array            $newsEntry
      * @param Module           $module
      */
-    public function onParseNewsArticles(FrontendTemplate $template, array $newsEntry, Module $module): void
+    public function __invoke(FrontendTemplate $template, array $newsEntry, Module $module): void
     {
         // Try to load the author model
         $userModel = $this->framework->getAdapter(UserModel::class);
@@ -61,15 +62,16 @@ class ParseArticlesListener
         $image = $imageModel->findByUuid($user->authorPicture);
         if (null !== $image) {
             $imageTemplate = new \stdClass();
-            $imgData = [
-                'singleSRC' => $image->path,
-                'alt' => $user->name,
-                'size' => StringUtil::deserialize($newsEntry['authorImageSize'], true),
-            ];
 
-            // Generate the picture data and add the image to the template
-            $controller = $this->framework->getAdapter(Controller::class);
-            $controller->addImageToTemplate($imageTemplate, $imgData, null, null, $image);
+            $figureBuilder = System::getContainer()->get('contao.image.studio')->createFigureBuilder();
+
+            $figure = $figureBuilder
+                        ->fromFilesModel($image)
+                        ->setSize(StringUtil::deserialize($newsEntry['authorImageSize'], true))
+                        ->buildIfResourceExists();
+
+            $figure->applyLegacyTemplateData($imageTemplate, null, null, false);
+
             $template->authorImage = $imageTemplate;
         }
     }

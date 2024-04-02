@@ -25,6 +25,7 @@ use Contao\Model;
 use Contao\ModuleModel;
 use Contao\NewsModel;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\Template;
 use Contao\UserModel;
 use Symfony\Component\HttpFoundation\Request;
@@ -85,11 +86,19 @@ class AuthorController extends AbstractFrontendModuleController
             return $template->getResponse();
         }
 
-        [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
-        $template->size = [$size, $width, $height];
+        [$width, $height, $size] = StringUtil::deserialize($model->imgSize);
+        $template->size = [$width, $height, $size];
         $template->singleSRC = $userImage->path;
 
-        $this->framework->getAdapter(Controller::class)->addImageToTemplate($template, $template->getData(), null, null, $userImage);
+        $figureBuilder = System::getContainer()->get('contao.image.studio')->createFigureBuilder();
+
+        $figure = $figureBuilder
+                    ->fromFilesModel($userImage)
+                    ->setSize($template->size)
+                    ->buildIfResourceExists();
+
+        // Build result and apply it to the template
+        $figure->applyLegacyTemplateData($template, null, $rowData['floating'] ?? null, false);
 
         // overwrite alt text if it does not exist
         if (!$template->picture['alt']) {
