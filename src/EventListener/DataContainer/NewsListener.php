@@ -27,7 +27,7 @@ class NewsListener
 
     /**
      * @param ContaoFramework $framework
-     * @param ImageSizes$imageSizes
+     * @param ImageSizes      $imageSizes
      */
     public function __construct(ContaoFramework $framework, ImageSizes $imageSizes)
     {
@@ -40,7 +40,7 @@ class NewsListener
      *
      * @param DataContainer $dataContainer
      */
-	#[AsCallback(table: 'tl_news', target: 'config.onload')]
+    #[AsCallback(table: 'tl_news', target: 'config.onload')]
     public function modifyPalette(DataContainer $dataContainer): void
     {
         PaletteManipulator::create()
@@ -57,7 +57,7 @@ class NewsListener
      *
      * @return array
      */
-	#[AsCallback(table: 'tl_news', target: 'fields.authorImageSize.options')]
+    #[AsCallback(table: 'tl_news', target: 'fields.authorImageSize.options')]
     public function getImageSizeOptions(): array
     {
         $user = $this->framework->createInstance(BackendUser::class);

@@ -21,7 +21,6 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use Xirdion\ContaoAuthorBundle\ContaoAuthorBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
 
 class Plugin implements BundlePluginInterface
 {
@@ -42,5 +41,4 @@ class Plugin implements BundlePluginInterface
                 ]),
         ];
     }
-
 }

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Xirdion\ContaoAuthorBundle\EventListener;
 
-use Contao\Controller;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FilesModel;
@@ -68,7 +67,8 @@ class ParseArticlesListener
             $figure = $figureBuilder
                         ->fromFilesModel($image)
                         ->setSize(StringUtil::deserialize($newsEntry['authorImageSize'], true))
-                        ->buildIfResourceExists();
+                        ->buildIfResourceExists()
+            ;
 
             $figure->applyLegacyTemplateData($imageTemplate, null, null, false);
 
