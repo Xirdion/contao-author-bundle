@@ -14,7 +14,7 @@
         "source": "https://github.com/xirdion/contao-author-bundle"
     },
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "contao/calendar-bundle": "^4.13 || ^5.0",
         "contao/core-bundle": "^4.13 || ^5.0",
