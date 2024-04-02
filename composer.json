@@ -19,7 +19,8 @@
         "contao/calendar-bundle": "^4.9 || ^5.0",
         "contao/core-bundle": "^4.9 || ^5.0",
         "contao/faq-bundle": "^4.9 || ^5.0",
-        "contao/news-bundle": "^4.9 || ^5.0"
+        "contao/news-bundle": "^4.9 || ^5.0",
+        "menatwork/contao-multicolumnwizard-bundle": "^3.5"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
