@@ -16,8 +16,8 @@ namespace Xirdion\ContaoAuthorBundle\Tests\ContaoManager;
 use Contao\CalendarBundle\ContaoCalendarBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\FaqBundle\ContaoFaqBundle;
+use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use PHPUnit\Framework\TestCase;
 use Xirdion\ContaoAuthorBundle\ContaoManager\Plugin;
@@ -34,7 +34,7 @@ class PluginTest extends TestCase
 
         $bundles = $plugin->getBundles($parser);
 
-        $this->assertInstanceOf(ConfigPluginInterface::class, $plugin);
+        $this->assertInstanceOf(BundlePluginInterface::class, $plugin);
         $this->assertCount(1, $bundles);
         $this->assertSame([
             ContaoCalendarBundle::class,
