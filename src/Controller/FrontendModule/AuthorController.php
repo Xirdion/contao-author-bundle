@@ -50,7 +50,7 @@ class AuthorController extends AbstractFrontendModuleController
      *
      * @return Response|null
      */
-    public function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    public function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
         // Get the auto_item value
         $input = $this->framework->getAdapter(Input::class);
