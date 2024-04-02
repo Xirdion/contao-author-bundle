@@ -29,7 +29,7 @@ class UserListenerTest extends TestCase
             ->willReturn('tl_user')
         ;
 
-        include_once __DIR__ . '/../../../src/Resources/contao/dca/tl_user.php';
+        include_once __DIR__ . '/../../../contao/dca/tl_user.php';
 
         // prepare
         foreach ($palettes as $palette) {
