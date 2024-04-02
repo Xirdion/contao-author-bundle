@@ -25,24 +25,24 @@ class UserListener
 	#[AsCallback(table: 'tl_user', target: 'config.onload')]
     public function modifyPalette(DataContainer $dc): void
     {
-        PaletteManipulator::create()
-            ->addLegend('author_legend', 'backend_legend', PaletteManipulator::POSITION_BEFORE)
-            ->addField(
-                [
-                    'authorPicture',
-                    'authorDescription',
-                    'authorLinks',
-                    'authorPage',
-                ],
-                'author_legend',
-                PaletteManipulator::POSITION_APPEND
-            )
-            ->applyToPalette('login', $dc->table)
-            ->applyToPalette('admin', $dc->table)
-            ->applyToPalette('default', $dc->table)
-            ->applyToPalette('group', $dc->table)
-            ->applyToPalette('extend', $dc->table)
-            ->applyToPalette('custom', $dc->table)
-        ;
+		foreach ($GLOBALS['TL_DCA'][$dc->table]['palettes'] as $palette => $fields) {
+			if($palette == '__selector__')
+				continue;
+
+			PaletteManipulator::create()
+				->addLegend('author_legend', 'backend_legend', PaletteManipulator::POSITION_BEFORE)
+				->addField(
+					[
+						'authorPicture',
+						'authorDescription',
+						'authorLinks',
+						'authorPage',
+					],
+					'author_legend',
+					PaletteManipulator::POSITION_APPEND
+				)
+				->applyToPalette($palette, $dc->table)
+			;
+		}
     }
 }
