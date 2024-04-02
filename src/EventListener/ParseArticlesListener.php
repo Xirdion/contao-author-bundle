@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Xirdion\ContaoAuthorBundle\EventListener;
 
 use Contao\Controller;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FilesModel;
 use Contao\FrontendTemplate;
@@ -21,6 +22,7 @@ use Contao\Module;
 use Contao\StringUtil;
 use Contao\UserModel;
 
+#[AsHook('parseArticles')]
 class ParseArticlesListener
 {
     private ContaoFramework $framework;

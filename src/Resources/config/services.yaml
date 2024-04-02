@@ -1,7 +1,0 @@
-services:
-    contao_author.controller.module_author:
-        class: Xirdion\ContaoAuthorBundle\Controller\FrontendModule\AuthorController
-        arguments:
-            - '@contao.framework'
-        tags:
-            - { name: contao.frontend_module, category: user }

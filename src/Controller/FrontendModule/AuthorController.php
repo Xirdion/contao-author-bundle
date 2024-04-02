@@ -16,6 +16,7 @@ namespace Xirdion\ContaoAuthorBundle\Controller\FrontendModule;
 use Contao\CalendarEventsModel;
 use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FaqModel;
 use Contao\FilesModel;
@@ -29,6 +30,7 @@ use Contao\UserModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+#[AsFrontendModule(category:'user', template: 'mod_author')]
 class AuthorController extends AbstractFrontendModuleController
 {
     private ContaoFramework $framework;

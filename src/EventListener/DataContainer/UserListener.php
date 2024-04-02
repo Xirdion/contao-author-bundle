@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Xirdion\ContaoAuthorBundle\EventListener\DataContainer;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;
 
 class UserListener
@@ -21,6 +22,7 @@ class UserListener
     /**
      * @param DataContainer $dc
      */
+	#[AsCallback(table: 'tl_user', target: 'config.onload')]
     public function modifyPalette(DataContainer $dc): void
     {
         PaletteManipulator::create()
