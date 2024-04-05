@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Xirdion\ContaoAuthorBundle\Controller\FrontendModule;
 
 use Contao\CalendarEventsModel;
-use Contao\Controller;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\FaqModel;
 use Contao\FilesModel;
@@ -24,11 +24,13 @@ use Contao\Model;
 use Contao\ModuleModel;
 use Contao\NewsModel;
 use Contao\StringUtil;
+use Contao\System;
 use Contao\Template;
 use Contao\UserModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+#[AsFrontendModule(category: 'user', template: 'mod_author')]
 class AuthorController extends AbstractFrontendModuleController
 {
     private ContaoFramework $framework;
@@ -50,7 +52,7 @@ class AuthorController extends AbstractFrontendModuleController
      *
      * @return Response|null
      */
-    public function getResponse(Template $template, ModuleModel $model, Request $request): ?Response
+    public function getResponse(Template $template, ModuleModel $model, Request $request): Response
     {
         // Get the auto_item value
         $input = $this->framework->getAdapter(Input::class);
@@ -83,11 +85,20 @@ class AuthorController extends AbstractFrontendModuleController
             return $template->getResponse();
         }
 
-        [$size, $width, $height] = StringUtil::deserialize($model->imgSize);
-        $template->size = [$size, $width, $height];
+        [$width, $height, $size] = StringUtil::deserialize($model->imgSize);
+        $template->size = [$width, $height, $size];
         $template->singleSRC = $userImage->path;
 
-        $this->framework->getAdapter(Controller::class)->addImageToTemplate($template, $template->getData(), null, null, $userImage);
+        $figureBuilder = System::getContainer()->get('contao.image.studio')->createFigureBuilder();
+
+        $figure = $figureBuilder
+                    ->fromFilesModel($userImage)
+                    ->setSize($template->size)
+                    ->buildIfResourceExists()
+        ;
+
+        // Build result and apply it to the template
+        $figure->applyLegacyTemplateData($template, null, $rowData['floating'] ?? null, false);
 
         // overwrite alt text if it does not exist
         if (!$template->picture['alt']) {

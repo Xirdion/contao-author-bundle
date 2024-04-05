@@ -19,12 +19,10 @@ use Contao\FaqBundle\ContaoFaqBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Contao\NewsBundle\ContaoNewsBundle;
 use Xirdion\ContaoAuthorBundle\ContaoAuthorBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
 
-class Plugin implements BundlePluginInterface, ConfigPluginInterface
+class Plugin implements BundlePluginInterface
 {
     /**
      * @param ParserInterface $parser
@@ -42,17 +40,5 @@ class Plugin implements BundlePluginInterface, ConfigPluginInterface
                     ContaoFaqBundle::class,
                 ]),
         ];
-    }
-
-    /**
-     * @param LoaderInterface $loader
-     * @param array           $managerConfig
-     *
-     * @throws \Exception
-     */
-    public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void
-    {
-        $loader->load(__DIR__ . '/../Resources/config/services.yaml');
-        $loader->load(__DIR__ . '/../Resources/config/listener.yaml');
     }
 }

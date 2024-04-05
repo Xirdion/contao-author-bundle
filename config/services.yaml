@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    Xirdion\ContaoAuthorBundle\:
+        resource: ../src
+        exclude: ../src/{Resources}

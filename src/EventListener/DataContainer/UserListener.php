@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Xirdion\ContaoAuthorBundle\EventListener\DataContainer;
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;
 
 class UserListener
@@ -21,26 +22,28 @@ class UserListener
     /**
      * @param DataContainer $dc
      */
+    #[AsCallback(table: 'tl_user', target: 'config.onload')]
     public function modifyPalette(DataContainer $dc): void
     {
-        PaletteManipulator::create()
-            ->addLegend('author_legend', 'backend_legend', PaletteManipulator::POSITION_BEFORE)
-            ->addField(
-                [
-                    'authorPicture',
-                    'authorDescription',
-                    'authorLinks',
-                    'authorPage',
-                ],
-                'author_legend',
-                PaletteManipulator::POSITION_APPEND
-            )
-            ->applyToPalette('login', $dc->table)
-            ->applyToPalette('admin', $dc->table)
-            ->applyToPalette('default', $dc->table)
-            ->applyToPalette('group', $dc->table)
-            ->applyToPalette('extend', $dc->table)
-            ->applyToPalette('custom', $dc->table)
-        ;
+        foreach ($GLOBALS['TL_DCA'][$dc->table]['palettes'] as $palette => $fields) {
+            if ('__selector__' === $palette) {
+                continue;
+            }
+
+            PaletteManipulator::create()
+                ->addLegend('author_legend', 'backend_legend', PaletteManipulator::POSITION_BEFORE)
+                ->addField(
+                    [
+                        'authorPicture',
+                        'authorDescription',
+                        'authorLinks',
+                        'authorPage',
+                    ],
+                    'author_legend',
+                    PaletteManipulator::POSITION_APPEND
+                )
+                ->applyToPalette($palette, $dc->table)
+            ;
+        }
     }
 }

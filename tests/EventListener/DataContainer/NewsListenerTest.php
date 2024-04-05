@@ -35,7 +35,7 @@ class NewsListenerTest extends ContaoTestCase
         $dc = $this->mockClassWithProperties(DataContainer::class);
         $dc->table = 'tl_news';
 
-        include_once __DIR__ . '/../../../src/Resources/contao/dca/tl_news.php';
+        include_once __DIR__ . '/../../../contao/dca/tl_news.php';
 
         // Prepare the palette
         foreach ($palettes as $palette) {
